@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify Record</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Modify Record</h1>
+    <form id="search-id-form">
+        <label>Enter ID: <input type="number" id="search-id"></label>
+        <button type="submit">Search</button>
+    </form>
+    <div id="modify-form" style="display:none;">
+        <form id="modify-record-form">
+            <label>Date: <input type="date" id="modify-date"></label><br>
+            <label>Type: 
+                <select id="modify-type">
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+            </label><br>
+            <label>Category: <input type="text" id="modify-category"></label><br>
+            <label>Amount: <input type="number" id="modify-amount"></label><br>
+            <label>Remark: <input type="text" id="modify-remark"></label><br>
+            <button type="submit">Save</button>
+            <button type="button" id="cancel">Cancel</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        let currentRecord = null;
+
+        document.getElementById('search-id-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const searchId = parseInt(document.getElementById('search-id').value);
+            const records = getRecords();
+            currentRecord = records.find(record => record.id === searchId);
+            if (currentRecord) {
+                document.getElementById('modify-date').value = currentRecord.date;
+                document.getElementById('modify-type').value = currentRecord.type;
+                document.getElementById('modify-category').value = currentRecord.category;
+                document.getElementById('modify-amount').value = currentRecord.amount;
+                document.getElementById('modify-remark').value = currentRecord.remark;
+                document.getElementById('modify-form').style.display = 'block';
+            } else {
+                alert('Record not found');
+            }
+        });
+
+        document.getElementById('modify-record-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (currentRecord) {
+                currentRecord.date = document.getElementById('modify-date').value;
+                currentRecord.type = document.getElementById('modify-type').value;
+                currentRecord.category = document.getElementById('modify-category').value;
+                currentRecord.amount = document.getElementById('modify-amount').value;
+                currentRecord.remark = document.getElementById('modify-remark').value;
+                updateRecord(currentRecord);
+                alert('Record updated successfully!');
+                document.getElementById('modify-form').style.display = 'none';
+            }
+        });
+
+        document.getElementById('cancel').addEventListener('click', function() {
+            document.getElementById('modify-form').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

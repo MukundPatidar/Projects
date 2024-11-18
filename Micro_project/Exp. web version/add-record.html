@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Record</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Add Record</h1>
+    <form id="add-record-form">
+        <label>Date: <input type="date" id="date"></label><br>
+        <label>Type: 
+            <select id="type">
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+        </label><br>
+        <label>Category: <input type="text" id="category"></label><br>
+        <label>Amount: <input type="number" id="amount"></label><br>
+        <label>Remark: <input type="text" id="remark"></label><br>
+        <button type="submit">Add Record</button>
+    </form>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('add-record-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const record = {
+                id: generateUniqueId(),
+                date: document.getElementById('date').value,
+                type: document.getElementById('type').value,
+                category: document.getElementById('category').value,
+                amount: document.getElementById('amount').value,
+                remark: document.getElementById('remark').value
+            };
+            saveRecord(record);
+            alert('Record added successfully!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

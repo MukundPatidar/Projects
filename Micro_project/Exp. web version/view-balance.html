@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Balance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>View Balance</h1>
+    <div id="balance-info"></div>
+    <script src="script.js"></script>
+    <script>
+        const balance = calculateBalance();
+        document.getElementById('balance-info').innerHTML = `
+            <p>Total Income: $${balance.income}</p>
+            <p>Total Expense: $${balance.expense}</p>
+            <p>Balance: $${balance.balance}</p>
+        `;
+    </script>
+</body>
+</html>

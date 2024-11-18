@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Records</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>View Records</h1>
+    <table id="records-table" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Remark</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script src="script.js"></script>
+    <script>
+        const records = getRecords();
+        const tableBody = document.querySelector('#records-table tbody');
+        records.forEach(record => {
+            const row = `<tr>
+                            <td>${record.id}</td>
+                            <td>${record.date}</td>
+                            <td>${record.type}</td>
+                            <td>${record.category}</td>
+                            <td>${record.amount}</td>
+                            <td>${record.remark}</td>
+                         </tr>`;
+            tableBody.innerHTML += row;
+        });
+    </script>
+</body>
+</html>

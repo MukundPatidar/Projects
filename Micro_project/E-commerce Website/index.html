@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>InnovateTech</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<!-- Navbar -->
+	<nav>
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#productCatalog">Products</a></li>
+			<li><a href="#aboutUs">About Us</a></li>
+			<li><a href="#contactUs">Contact Us</a></li>
+			<li><a href="#registerForm">Register/Login</a></li>
+			<li><a href="#cart">Cart</a></li>
+		</ul>
+	</nav>
+
+	<!-- Product Catalog -->
+	<section id="productCatalog">
+		<h2>Product Catalog</h2>
+		<div class="product">
+			<img src="laptop.jpg" alt="Laptop">
+			<h3>Laptop X100</h3>
+			<p>High-performance laptop for tech enthusiasts.</p>
+			<button class="add-to-cart-btn" onclick="addToCart(1)">Add to Cart</button>
+		</div>
+		<div class="product">
+			<img src="smartphone.jpg" alt="Smartphone">
+			<h3>Smartphone S200</h3>
+			<p>Latest smartphone with cutting-edge technology.</p>
+			<button class="add-to-cart-btn" onclick="addToCart(2)">Add to Cart</button>
+		</div>
+	</section>
+
+	<!-- Registration/Login Forms -->
+	<section id="registerForm">
+		<h2>Register</h2>
+		<form>
+			<label for="email">Email:</label>
+			<input type="email" id="email" required>
+			<br>
+			<label for="password">Password:</label>
+			<input type="password" id="password" required>
+			<br>
+			<label for="confirmPassword">Confirm Password:</label>
+			<input type="password" id="confirmPassword" required>
+			<br>
+			<button type="submit">Register</button>
+		</form>
+		<h2>Login</h2>
+		<form id="loginForm">
+			<label for="loginEmail">Email:</label>
+			<input type="email" id="loginEmail" required>
+			<br>
+			<label for="loginPassword">Password:</label>
+			<input type="password" id="loginPassword" required>
+			<br>
+			<button type="submit">Login</button>
+		</form>
+	</section>
+
+	<!-- Demo Video Section -->
+	<section id="videoSection">
+		<h2>Product Demo</h2>
+		<button id="playVideoBtn">Play Demo Video</button>
+		<div id="videoContainer"></div>
+	</section>
+
+	<!-- About Us -->
+	<section id="aboutUs">
+		<h2>About InnovateTech</h2>
+		<p>InnovateTech is your go-to platform for the latest tech products. We are committed to bringing the best gadgets
+			and devices to technology enthusiasts.</p>
+	</section>
+
+	<!-- Contact Us -->
+	<section id="contactUs">
+		<h2>Contact Us</h2>
+		<form>
+			<label for="name">Name:</label>
+			<input type="text" id="name" required>
+			<br>
+			<label for="email">Email:</label>
+			<input type="email" id="contactEmail" required>
+			<br>
+			<label for="message">Message:</label>
+			<textarea id="message" required></textarea>
+			<br>
+			<button type="submit">Submit</button>
+		</form>
+	</section>
+
+	<!-- Cart and Order History -->
+	<section id="cart">
+		<h2>Your Shopping Cart</h2>
+		<div id="cartContents"></div>
+	</section>
+
+	<section id="orderHistory">
+		<h2>Order History</h2>
+		<p>Order #12345 - Status: Shipped <a href="#">Track Order</a></p>
+	</section>
+
+	<script src="scripts.js"></script>
+</body>
+
+</html>
