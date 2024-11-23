@@ -5,6 +5,7 @@ public class Treacker {
 	static int currentRow = 0;
 
 	public static void main(String[] args) {
+		
 		// Menu();
 		String n = sc.nextLine();
 		System.out.println(n);
